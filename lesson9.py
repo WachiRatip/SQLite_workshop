@@ -1,5 +1,6 @@
 import os 
 import re
+import sqlite3
 
 path = os.path.join(".", "examples", "mock_data.txt")
 
@@ -20,6 +21,17 @@ for item in list_raw:
 print(data, type(data))
 
 # Connect database
+db = sqlite3.connect('my_db.db')
+
 # Create table
+# Done by lesson10.py
+
 # Insert rows
-# Select rows
+INSERT_STATEMENT = """
+        INSERT INTO tempyearly 
+        VALUES (?, ?);
+"""
+db.executemany(INSERT_STATEMENT, data)
+db.commit()
+
+db.close()
