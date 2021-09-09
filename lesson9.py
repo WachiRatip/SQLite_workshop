@@ -3,7 +3,7 @@ import re
 
 path = os.path.join(".", "examples", "mock_data.txt")
 
-with open(path, "r") as file:
+with open(path, "r", encoding='utf-8') as file:
     raw = file.read()
 
 list_raw = raw.split("\n")
@@ -18,3 +18,8 @@ for item in list_raw:
     )
 
 print(data, type(data))
+
+# Connect database
+# Create table
+# Insert rows
+# Select rows
